@@ -47,5 +47,3 @@ Vous pouvez ensuite ajouter les éléments que vous voulez montrer quand l'image
     ![Image title](../assets/images/developpement/exirl.png)
     <figcaption>Exemple d'Image Target avec un téléphone</figcaption>
 </figure>
-
-## Utiliser une cible de modèle (Model Target)
