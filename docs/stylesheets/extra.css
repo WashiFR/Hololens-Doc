@@ -172,6 +172,18 @@ figcaption {
     margin-right: 10px;
 }
 
+.temp-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #22272e;
+    color: #6c757d;
+    border: #6c757d 2px solid;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: xx-large;
+}
+
 /* Scroll Bar */
 /* width */
 ::-webkit-scrollbar {

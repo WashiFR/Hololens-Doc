@@ -8,7 +8,7 @@
 
 Bienvenue dans la documentation officiel du logiciel <span style="color: red;">**PolyLens**</span>.
 
-Cette documentation présente et explique comment utiliser le logiciel PolyLens, mais aussi comment créer un projet avec Hololens[^1] et Unity[^2].
+Cette documentation présente et explique comment utiliser le logiciel PolyLens, mais aussi comment créer un projet avec un casque HoloLens 2[^1] et Unity[^2].
 
 ## Développeurs
 

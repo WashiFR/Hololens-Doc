@@ -2,6 +2,10 @@
 
 ***
 
+!!! info
+
+    Cette partie n'est pas obligatoire pour le développement de logiciels avec HoloLens, mais permet d'avoir plusieurs languages disponibles sur votre application.
+
 ## Installation du paquet Simple Localization with Google Sheets
 
 Pour commencer, ouvrez votre projet Unity si ce n'est pas déjà fait. Ensuite, ouvrez une page internet et collez le lien suivant : [https://assetstore.unity.com/packages/tools/gui/simple-localization-with-google-sheets-120113](https://assetstore.unity.com/packages/tools/gui/simple-localization-with-google-sheets-120113)

@@ -47,7 +47,8 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - md_in_html
   - pymdownx.superfences
+  - pymdownx.keys
 extra_css:
   - stylesheets/extra.css
-repo_url: https://github.com/WashiFR/Hololens-Doc
+repo_url: https://github.com/WashiFR/PolyLens-Doc
 repo_name: WashiFR/PolyLens-Doc

@@ -1,5 +1,9 @@
 # Utiliser Vuforia avec Unity
 
+<div class="temp-card">
+    Cette partie est en cours d'écriture
+</div>
+
 ***
 
 ## Introduction
@@ -11,7 +15,7 @@ La première est une cible image (ou Image Target en anglais). Il s'agit d'une c
 La seconde possibilité est l'utilisation d'une cible de modèle (ou Model Target en anglais). Il s'agit d'une cible qui se crée en fonction d'un modèle 3D. Par exemple, si vous voulez détecter un objet et que vous en avez le modèle en 3D, vous pouvez rajouter des éléments qui se mettront automatiquement autour de l'objet.
 
 Nous allons vous montrer comment les utiliser dans le cadre de notre projet.
-Assurez-vous d'avoir déjà suivi les étapes présentes sur la page d'[Installation de Vuforia](\configuration\vuforia).
+Assurez-vous d'avoir déjà suivi les étapes présentes sur la page d'[Installation de Vuforia](/PolyLens-Doc/configuration/vuforia).
 
 ## Utiliser une cible d'image (Image Target)
 

@@ -1,12 +1,35 @@
 # Build son projet et le déployer sur le casque HoloLens
 
+<div class="temp-card">
+    Cette partie est en cours d'écriture
+</div>
+
 ***
 
-Build votre projet sur le casque HoloLens vous permet de le lancer directement sur le casque en tant qu'application, et cela permet aussi à votre projet d'accéder aux caméras du casque.
+Build votre projet sur le casque HoloLens vous permet de le lancer directement sur le casque en tant qu'application, et cela permet aussi à votre projet d'accéder aux caméras du casque. Vous aurez besoin de l'activer sur le casque et sur votre PC windows 10/11.
 
 ## Activer le mode développeur
 
 ### Sur HoloLens
+
+Rendez-vous dans les Paramètres, puis allez dans `Mise à jour et sécurité` &rarr; `Pour les développeurs` et activez tout ce qui peut l'être.
+
+<figure markdown="span">
+    ![Image title](../assets/images/developpement/HoloLens-dev.jpg)
+    <figcaption>Activation du mode développeur sur HoloLens 2</figcaption>
+</figure>
+
+Après cela, suivez les instructions de la vidéo pour pouvoir vous connécter au casque via un même réseau.
+
+!!! info
+
+    Notez qu’il est possible que cela ne fonctionne pas sur certains réseaux publics ou universitaires.
+
+<iframe width="100%" height="415" src="https://www.youtube.com/embed/0yyM_lcg1g0?si=Zl-qUr-g8Qk380YZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+!!! warning "Important"
+
+    Choisisez bien vos identifiants car vous en aurez besoins plus tard pour build le projet.
 
 ### Sur Windows 10
 
@@ -18,7 +41,7 @@ Rendez-vous dans les Paramètres, puis allez dans `Système` &rarr; `Espace dév
 
 ## Build le projet sur Unity
 
-Pour build votre projet avec Unity, allez dans `File` &rarr; `Build settings...`, vous pouvez y accéder vie le raccourcis `Ctrl + Shift + B`.
+Pour build votre projet avec Unity, allez dans `File` &rarr; `Build settings...`, vous pouvez y accéder vie le raccourcis ++ctrl+shift+b++
 
 !!! warning "Important"
 
@@ -46,3 +69,27 @@ Vous aurez une nouvelle fenêtre qui souvrira, les 2 premières étapes il n'y a
 Une fois cela fait, appuyez sur `Créer`, cela va vous créer des fichiers permettants de déployer votre projet sur le casque HoloLens.
 
 ## Déployer le projet sur le casque
+
+Une fois que vous avez build votre projet avec Unity et créé les packages d'application avec Visual Studio, nous pouvons maintenant déployer l'application sur le casque, pour cela il faut que votre PC et votre casque soient sur le même réseau.
+
+!!! info
+
+    Notez qu’il est possible que cela ne fonctionne pas sur certains réseaux publics ou universitaires.
+
+Entrez l'adresse IP réseau du casque dans votre barre de recherche et entrez vos identifiants créé plus tôt pour pouvoir accéder à cette page :
+
+<figure markdown="span">![Image title](../assets/images/developpement/page-casque.png)</figure>
+
+!!! info
+
+    Vous pouvez trouver cette adresse IP en allumant le logiciel `Holographic Remoting Player` ou alors retournez dans les paramètres au même endroit ou vous avez activé le mode développeur, puis tout en bas vous aurez alors 3 liens dont 1 pour la connection Wi-Fi. Ce lien est vitre adresse IP réseau.
+
+Suivez ensuite les étapes de cette vidéo :
+
+<iframe width="100%" height="415" src="https://www.youtube.com/embed/jNyF4Whh_Uw?si=Q8RoXwngWN5xX5TN&amp;start=708" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+!!! warning "Important"
+
+    Veillez à avoir une bonne connexion internet, sinon le téléchargement risque d'être très long.
+
+Et voilà vous avez terminé, votre application et maintenant disponible sur le casque directement.

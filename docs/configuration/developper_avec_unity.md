@@ -6,7 +6,7 @@ Maintenant que nous avons pris le casque de réalité mixte en mains, nous pouvo
 
 ## Création du projet Unity
 
-Nous allons en premier lieu créer un projet Unity. Il est important que la version d’Unity soit la <span style="color: red;">**2022.3.21f1**</span> afin d’éviter tout problème de compatibilité avec les packages MRTK. Il faut donc créer un projet 3D vierge. Le nom du projet importe peu.
+Nous allons en premier lieu créer un projet Unity. Il est important que la version d’Unity soit la <span style="color: red;">**2022.3.21f1**</span> ou supérieur afin d’éviter tout problème de compatibilité avec les packages MRTK. Il faut donc créer un projet 3D vierge. Le nom du projet importe peu.
 
 <figure markdown="span">
     ![Image title](../assets/images/configuration/screen1.png)
@@ -17,7 +17,7 @@ Une fois notre projet Unity créé, Nous allons nous diriger vers `File` &rarr; 
 
 ## Mixed Reality Feature Tool
 
-Le Mixed Reality Feature Tool, ou MRTK, est une librairie permettant aux développeurs de programmer plus facilement leurs applications pour les casques de réalité mixte. Il est disponible pour Unreal et Unity. Dans notre cas, nous utiliserons Unity. 
+Le Mixed Reality Feature Tool, ou MRTK, est une librairie permettant aux développeurs de programmer plus facilement leurs applications pour les casques de réalité mixte. Il est disponible pour Unreal[^1] et Unity. Dans notre cas, nous utiliserons Unity. 
 
 !!! info
 
@@ -25,9 +25,9 @@ Le Mixed Reality Feature Tool, ou MRTK, est une librairie permettant aux dévelo
 
 !!! warning
 
-    N’allez pas plus loin que l’étape 4 de la section `Importer les packages Mixed Reality Toolkit et OpenXR`, car nous n’installons pas les mêmes librairies.
+    N’allez pas plus loin que l’étape 4 de la section `Importer les packages Mixed Reality Toolkit et OpenXR`, car nous n’installerons pas les mêmes librairies.
 
-Une fois les étapes précédentes réalisées, Il faut cocher plusieurs librairies. Dans `MRTK3`, cochez : `MRTK Input`, `MRTK Standard assets` et `MRTK UX Components`.
+Une fois les étapes précédentes réalisées, Il faut cocher plusieurs librairies. Dans `MRTK3`, cochez les cases suivantes : `MRTK Input`, `MRTK Standard assets` et `MRTK UX Components`.
 
 <figure markdown="span">![Image title](../assets/images/configuration/screen2.png)</figure>
 
@@ -56,3 +56,5 @@ Lors de l’ajout de la caméra dans le projet, il est possible que votre camér
 <figure markdown="span">![Image title](../assets/images/configuration/screen6.png)</figure>
 
 Et voilà, votre projet et prêt, il ne reste plus qu’à pouvoir lancer votre projet sur votre casque Hololens 2 pour pouvoir le tester. Pour cela allez à la prochaine section où l’on vous montre comment lancer votre projet sur votre casque sans avoir besoin de build votre projet.
+
+[^1]: Moteur de jeu vidéo propriétaire développé par Epic Games.

@@ -6,10 +6,11 @@
 
 Pour pouvoir utiliser le casque de réalité mixte HoloLens 2, il vous faudra :
 
-* Une connexion Internet stable
+* Une connexion internet stable
 * Un pc Windows 10/11
 
 ## Contenu
+
 Le casque de réalité mixte HoloLens 2 est emballé dans une pochette. Il est accompagné de ses accessoires. Vous trouverez dans la pochette :
 
 * Le casque HoloLens 2

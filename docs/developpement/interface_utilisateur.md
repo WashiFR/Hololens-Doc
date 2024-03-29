@@ -4,7 +4,7 @@
 
 ## Ajout d'UI déjà fait
 
-MRTK3 vous propose des UI déjà fait, ce qui est très pratique. Vous les trouverez dans `Packages` &rarr; `MRTK UX Components (Non-Canvas)`
+MRTK3 vous propose des UI déjà faites, ce qui est très pratique. Vous les trouverez dans `Packages` &rarr; `MRTK UX Components (Non-Canvas)`
 
 !!! warning
 
