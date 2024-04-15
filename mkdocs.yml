@@ -21,6 +21,7 @@ nav:
     - Présentation: presentation/presentation.md
     - Installation: presentation/installation.md
     - Utilisation: presentation/utilisation.md
+    - Script StepManager: presentation/step_manager.md
   - 🛠️ Créer un projet:
     - 📃 Prérequis:
       - Télécharger les outils/logiciels: prerequis/outils_logiciels.md

@@ -8,6 +8,11 @@
 
 Le logiciel PolyLens est un logiciel de réalité mixte[^1] permettant d'apprendre l'utilisation de certaines machines grâce à la réalité mixte.
 
+Les machines prises en charges sont pour le moment :
+
+* Machine laser - [Trotec Speedy 300](https://www.troteclaser.com/fr/machines-laser/machines-gravure-laser-speedy)
+* Machine fraiseuse - DMU 50 eVolution
+
 Cette aplication a été réalisé par 2 étudiants en BUT Informatique[^2], lors de leur stage de 2<sup>ème</sup> année en 2024, pour l'école [Polytech - Nancy](https://polytech-nancy.univ-lorraine.fr/). Vous trouverez plus d'infos sur les développeurs sur cette [page](/PolyLens-Doc/#developpeurs).
 
 [^1]: Fusion de mondes réels et virtuels pour produire de nouveaux environnements et visualisations, où les objets physiques et numériques coexistent et interagissent en temps réel.

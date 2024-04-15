@@ -1,9 +1,5 @@
 # Build son projet et le déployer sur le casque HoloLens
 
-<div class="temp-card">
-    Cette partie est en cours d'écriture
-</div>
-
 ***
 
 Build votre projet sur le casque HoloLens vous permet de le lancer directement sur le casque en tant qu'application, et cela permet aussi à votre projet d'accéder aux caméras du casque. Vous aurez besoin de l'activer sur le casque et sur votre PC windows 10/11.

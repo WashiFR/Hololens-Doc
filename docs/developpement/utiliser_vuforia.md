@@ -1,9 +1,5 @@
 # Utiliser Vuforia avec Unity
 
-<div class="temp-card">
-    Cette partie est en cours d'écriture
-</div>
-
 ***
 
 ## Introduction
