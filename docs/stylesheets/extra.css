@@ -27,6 +27,10 @@ p > a:hover:not(.md-button) {
 }
 
 /* Table des matières */
+.md-nav--secondary .md-nav__title {
+    box-shadow: none;
+}
+
 .md-nav--secondary .md-nav__link {
     border-left: 1px solid transparent;
     padding-left: 10px;    
