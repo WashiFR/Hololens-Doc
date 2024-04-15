@@ -6,4 +6,4 @@
 
 ***
 
-<embed width="100%" height="1000px" src="/assets/COMMENT_UTILISER_LE_CASQUE_HOLOLENS_2.pdf"/>
+<embed width="100%" height="1000px" src="../assets/COMMENT_UTILISER_LE_CASQUE_HOLOLENS_2.pdf"/>
