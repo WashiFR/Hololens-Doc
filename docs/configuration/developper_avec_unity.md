@@ -21,11 +21,11 @@ Le Mixed Reality Feature Tool, ou MRTK, est une librairie permettant aux dévelo
 
 !!! info
 
-    [Suivez le guide](https://learn.microsoft.com/fr-fr/windows/mixed-reality/develop/unity/new-openxr-project-with-mrtk) officiel de Microsoft.
+    Vous pouvez [suivre le guide](https://learn.microsoft.com/fr-fr/windows/mixed-reality/develop/unity/new-openxr-project-with-mrtk) officiel de Microsoft pour un peu plus d'informations.
 
 !!! warning
 
-    N’allez pas plus loin que l’étape 4 de la section `Importer les packages Mixed Reality Toolkit et OpenXR`, car nous n’installerons pas les mêmes librairies.
+    Si vous suivez le guide officiel de Microsoft, n’allez pas plus loin que l’étape 4 de la section `Importer les packages Mixed Reality Toolkit et OpenXR`, car nous n’installerons pas les mêmes librairies.
 
 Une fois les étapes précédentes réalisées, Il faut cocher plusieurs librairies. Dans `MRTK3`, cochez les cases suivantes : `MRTK Input`, `MRTK Standard assets` et `MRTK UX Components`.
 
@@ -47,9 +47,13 @@ Une fois l’outil d’installation fermé, vous pouvez retourner sur votre proj
 
 <iframe width="100%" height="415" src="https://www.youtube.com/embed/aVnwIq4VUcY?si=UM9FX5VL6A2TDMps&amp;start=1090" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-Il se peut que certaines interfaces n’apparaissent pas, notamment à <span style="color: rgb(78, 170, 200)">**21:50**</span>, il suffit juste d’aller dans `Edit` &rarr; `Project Settings` &rarr; `XR Plug-in Management` (tout en bas à gauche) pour avoir la même fenêtre. 
+!!! info
 
-Lors de l’ajout de la caméra dans le projet, il est possible que votre caméra ne soit pas correctement placer et vous ne voyez donc pas ce que vous avez ajouté dans votre scène, vérifier que la position en Y de `MRTK XR RIG` est à 0 et que son enfant `Camera Offset` à dans son composant `XR Origin` la partie `Camera Y Offset` à 0.
+    Il se peut que certaines interfaces n’apparaissent pas, notamment à <span style="color: rgb(78, 170, 200)">**21:50**</span>, il suffit juste d’aller dans `Edit` &rarr; `Project Settings` &rarr; `XR Plug-in Management` (tout en bas à gauche) pour avoir la même fenêtre. 
+
+!!! warning
+
+    Lors de l’ajout de la caméra dans le projet, il est possible que votre caméra ne soit pas correctement placer et vous ne voyez donc pas ce que vous avez ajouté dans votre scène, vérifier que la position en Y de `MRTK XR RIG` est à 0 et que son enfant `Camera Offset` à dans son composant `XR Origin` la partie `Camera Y Offset` à 0.
 
 <figure markdown="span">![Image title](../assets/images/configuration/screen5.png)</figure>
 
