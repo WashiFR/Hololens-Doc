@@ -27,7 +27,7 @@ Le Mixed Reality Feature Tool, ou MRTK, est une librairie permettant aux dévelo
 
     Si vous suivez le guide officiel de Microsoft, n’allez pas plus loin que l’étape 4 de la section `Importer les packages Mixed Reality Toolkit et OpenXR`, car nous n’installerons pas les mêmes librairies.
 
-Une fois les étapes précédentes réalisées, Il faut cocher plusieurs librairies. Dans `MRTK3`, cochez les cases suivantes : `MRTK Input`, `MRTK Standard assets` et `MRTK UX Components`.
+Une fois les étapes précédentes réalisées, Il faut cocher plusieurs librairies. Dans `MRTK3`, cochez les cases suivantes : `MRTK Input`, `MRTK Standard assets` et `MRTK UX Components`. On vous recommande également de prendre `MRTK UX Components (Non-Canvas)`, pour plus d'information rendez-vous sur cette [page](/PolyLens-Doc/developpement/interface_utilisateur/)
 
 <figure markdown="span">![Image title](../assets/images/configuration/screen2.png)</figure>
 
