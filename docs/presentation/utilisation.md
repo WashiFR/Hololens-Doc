@@ -1,9 +1,8 @@
 # Utilisation du projet PolyLens
 
-<div class="temp-card">
-    Cette partie est en cours d'écriture
-</div>
-
 ***
 
-<embed width="100%" height="1000px" src="/assets/COMMENT_UTILISER_LE_CASQUE_HOLOLENS_2.pdf"/>
+<figure markdown="span">
+    ![Image title](../assets/images/presentation/utilisation_1.png)
+    ![Image title](../assets/images/presentation/utilisation_2.png)
+</figure>

@@ -2,6 +2,10 @@
 
 ***
 
+!!! info
+
+    Pour pouvoir retrouver la fenêtre au cas où vous avez oubliez de cochez certaines cases, ouvrez Visual Studio, appuyer sur `Continuez sans code ->`, puis une fois Visual ouvert allez dans `Outils` &rarr; `Obtenir les outils et fonctionnalités...`
+
 Pour pouvoir programmer et déployer nos applications avec Visual Studio nous aurons besoins de télécharger certains composants en plus qui sont disponible via Visual Studio. Voici la liste :
 
 * Développement .NET Desktop

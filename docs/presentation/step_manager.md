@@ -12,7 +12,7 @@ Dans le projet PolyLens, l'affichages des différentes étapes et animations son
 
     Ce script est adapté pour l'utilisation de la [Localisation](/PolyLens-Doc/developpement/localisation/).
 
-```c#
+```c# linenums="1"
 using Assets.SimpleLocalization.Scripts;
 using TMPro;
 using UnityEngine;
@@ -143,7 +143,7 @@ public class StepManager : MonoBehaviour
 
 ## Variables
 
-```c#
+```c# linenums="1"
 // Texte qui affiche le titre de l'étape. C'est le texte dans la barre de titre de la SlateTuto.
 private TextMeshPro titleText;
 
@@ -171,7 +171,7 @@ private int numberOfSteps;
 
 ## Fonctions
 
-```c#
+```c# linenums="1"
 // Fonction intégrer à Unity qui s'applique dès le démarrage.
 private void Start()
 {

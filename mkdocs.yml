@@ -17,7 +17,7 @@ theme:
     - content.tooltips
 nav:
   - 📌 Accueil: index.md
-  - 📚 Présentation PolyLens:
+  - 📚 PolyLens:
     - Présentation: presentation/presentation.md
     - Installation: presentation/installation.md
     - Utilisation: presentation/utilisation.md
