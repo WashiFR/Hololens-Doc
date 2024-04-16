@@ -952,11 +952,11 @@
 <p>Le Mixed Reality Feature Tool, ou MRTK, est une librairie permettant aux développeurs de programmer plus facilement leurs applications pour les casques de réalité mixte. Il est disponible pour Unreal<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> et Unity. Dans notre cas, nous utiliserons Unity. </p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p><a href="https://learn.microsoft.com/fr-fr/windows/mixed-reality/develop/unity/new-openxr-project-with-mrtk">Suivez le guide</a> officiel de Microsoft.</p>
+<p>Vous pouvez <a href="https://learn.microsoft.com/fr-fr/windows/mixed-reality/develop/unity/new-openxr-project-with-mrtk">suivre le guide</a> officiel de Microsoft pour un peu plus d'informations.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>N’allez pas plus loin que l’étape 4 de la section <code>Importer les packages Mixed Reality Toolkit et OpenXR</code>, car nous n’installerons pas les mêmes librairies.</p>
+<p>Si vous suivez le guide officiel de Microsoft, n’allez pas plus loin que l’étape 4 de la section <code>Importer les packages Mixed Reality Toolkit et OpenXR</code>, car nous n’installerons pas les mêmes librairies.</p>
 </div>
 <p>Une fois les étapes précédentes réalisées, Il faut cocher plusieurs librairies. Dans <code>MRTK3</code>, cochez les cases suivantes : <code>MRTK Input</code>, <code>MRTK Standard assets</code> et <code>MRTK UX Components</code>.</p>
 <figure><img alt="Image title" src="../../assets/images/configuration/screen2.png" /></figure>
@@ -969,8 +969,14 @@
 <p>Une fois l’outil d’installation fermé, vous pouvez retourner sur votre projet Unity. Ensuite, suivez les indications de la vidéo pour configurer votre projet Unity.</p>
 <iframe width="100%" height="415" src="https://www.youtube.com/embed/aVnwIq4VUcY?si=UM9FX5VL6A2TDMps&amp;start=1090" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+<div class="admonition info">
+<p class="admonition-title">Info</p>
 <p>Il se peut que certaines interfaces n’apparaissent pas, notamment à <span style="color: rgb(78, 170, 200)"><strong>21:50</strong></span>, il suffit juste d’aller dans <code>Edit</code> &rarr; <code>Project Settings</code> &rarr; <code>XR Plug-in Management</code> (tout en bas à gauche) pour avoir la même fenêtre. </p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>Lors de l’ajout de la caméra dans le projet, il est possible que votre caméra ne soit pas correctement placer et vous ne voyez donc pas ce que vous avez ajouté dans votre scène, vérifier que la position en Y de <code>MRTK XR RIG</code> est à 0 et que son enfant <code>Camera Offset</code> à dans son composant <code>XR Origin</code> la partie <code>Camera Y Offset</code> à 0.</p>
+</div>
 <figure><img alt="Image title" src="../../assets/images/configuration/screen5.png" /></figure>
 <figure><img alt="Image title" src="../../assets/images/configuration/screen6.png" /></figure>
 <p>Et voilà, votre projet et prêt, il ne reste plus qu’à pouvoir lancer votre projet sur votre casque Hololens 2 pour pouvoir le tester. Pour cela allez à la prochaine section où l’on vous montre comment lancer votre projet sur votre casque sans avoir besoin de build votre projet.</p>
