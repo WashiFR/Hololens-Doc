@@ -12,7 +12,7 @@
         <link rel="prev" href="../utilisation/">
       
       
-        <link rel="next" href="../../prerequis/outils_logiciels/">
+        <link rel="next" href="../creer_etape/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -417,10 +417,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#appercu-dans-lediteur" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apperçu dans l'éditeur
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creer_etape/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Créer des étapes
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -743,27 +773,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../developpement/objets_manipulables/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Objets manipulables
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../developpement/interface_utilisateur/" class="md-nav__link">
         
   
@@ -790,27 +799,6 @@
   
   <span class="md-ellipsis">
     Utiliser Vuforia
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../developpement/localisation/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Localisation
   </span>
   
 
@@ -900,6 +888,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#appercu-dans-lediteur" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apperçu dans l'éditeur
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -919,16 +916,8 @@
 
 
 <h1 id="explication-du-script-stepmanager">Explication du script StepManager</h1>
-<div class="temp-card">
-    Cette partie est en cours d'écriture
-</div>
-
 <hr />
 <p>Dans le projet PolyLens, l'affichages des différentes étapes et animations sont gérés par le script <code>StepManager</code> qui suit :</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Ce script est adapté pour l'utilisation de la <a href="/PolyLens-Doc/developpement/localisation/">Localisation</a>.</p>
-</div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
 <span class="normal">  2</span>
 <span class="normal">  3</span>
@@ -1038,23 +1027,7 @@
 <span class="normal">107</span>
 <span class="normal">108</span>
 <span class="normal">109</span>
-<span class="normal">110</span>
-<span class="normal">111</span>
-<span class="normal">112</span>
-<span class="normal">113</span>
-<span class="normal">114</span>
-<span class="normal">115</span>
-<span class="normal">116</span>
-<span class="normal">117</span>
-<span class="normal">118</span>
-<span class="normal">119</span>
-<span class="normal">120</span>
-<span class="normal">121</span>
-<span class="normal">122</span>
-<span class="normal">123</span>
-<span class="normal">124</span>
-<span class="normal">125</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Assets.SimpleLocalization.Scripts</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">TMPro</span><span class="p">;</span>
+<span class="normal">110</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">TMPro</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
 
 <span class="c1">/// &lt;summary&gt;</span>
@@ -1069,6 +1042,9 @@
 <span class="w">    </span><span class="na">[Tooltip(&quot;Texte affichant la description de l&#39;étape.&quot;)]</span>
 <span class="w">    </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">TextMeshPro</span><span class="w"> </span><span class="n">descriptionText</span><span class="p">;</span>
 
+<span class="w">    </span><span class="na">[Tooltip(&quot;Image affichant l&#39;image de l&#39;étape.&quot;)]</span>
+<span class="w">    </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">SpriteRenderer</span><span class="w"> </span><span class="n">imageRenderer</span><span class="p">;</span>
+
 <span class="w">    </span><span class="na">[Header(&quot;Buttons UI&quot;)]</span>
 <span class="w">    </span><span class="na">[Tooltip(&quot;Bouton pour passer à l&#39;étape suivante.&quot;)]</span>
 <span class="w">    </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">GameObject</span><span class="w"> </span><span class="n">nextButton</span><span class="p">;</span>
@@ -1076,22 +1052,17 @@
 <span class="w">    </span><span class="na">[Tooltip(&quot;Bouton pour passer à l&#39;étape précédente.&quot;)]</span>
 <span class="w">    </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">GameObject</span><span class="w"> </span><span class="n">previousButton</span><span class="p">;</span>
 
-<span class="w">    </span><span class="na">[Header(&quot;Fichier CSV&quot;)]</span>
-<span class="w">    </span><span class="na">[Tooltip(&quot;Fichier CSV contenant les étapes dans les différentes langues.&quot;)]</span>
-<span class="w">    </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">TextAsset</span><span class="w"> </span><span class="n">csvFile</span><span class="p">;</span>
-
 <span class="w">    </span><span class="na">[Header(&quot;Step List&quot;)]</span>
-<span class="w">    </span><span class="na">[Tooltip(&quot;Liste des étapes à activer lors de l&#39;étape.&quot;)]</span>
-<span class="w">    </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">GameObject</span><span class="p">[]</span><span class="w"> </span><span class="n">stepGameObjects</span><span class="p">;</span>
+<span class="w">    </span><span class="na">[Tooltip(&quot;Liste d&#39;affichage des étapes (animations).&quot;)]</span>
+<span class="w">    </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">GameObject</span><span class="p">[]</span><span class="w"> </span><span class="n">stepAnimation</span><span class="p">;</span>
+
+<span class="w">    </span><span class="na">[Tooltip(&quot;Etapes de la machine.&quot;)]</span>
+<span class="w">    </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">SoStep</span><span class="p">[]</span><span class="w"> </span><span class="n">steps</span><span class="p">;</span>
 
 <span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">currentStepIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
 
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numberOfSteps</span><span class="p">;</span>
-
 <span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csvFile</span><span class="p">.</span><span class="n">text</span><span class="p">.</span><span class="n">Split</span><span class="p">(</span><span class="sc">&#39;\n&#39;</span><span class="p">);</span>
-<span class="w">        </span><span class="n">numberOfSteps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lines</span><span class="p">.</span><span class="n">Length</span><span class="o">-</span><span class="m">1</span><span class="p">;</span>
 <span class="w">        </span><span class="n">UpdateUI</span><span class="p">();</span>
 <span class="w">    </span><span class="p">}</span>
 
@@ -1100,23 +1071,11 @@
 <span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
 <span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">UpdateTextsUI</span><span class="p">()</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">titleText</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Étape &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">currentStepIndex</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; sur &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">numberOfSteps</span><span class="p">;</span>
-
-<span class="w">        </span><span class="n">LocalizedTextTMP</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">descriptionText</span><span class="p">.</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">LocalizedTextTMP</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">stepKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">step</span><span class="p">.</span><span class="n">LocalizationKey</span><span class="p">;</span>
-
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentStepIndex</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">10</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">stepKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stepKey</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">stepKey</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">stepKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stepKey</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">stepKey</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">2</span><span class="p">);</span>
+<span class="w">        </span><span class="n">titleText</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Étape &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">currentStepIndex</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; sur &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">steps</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
+<span class="w">        </span><span class="n">descriptionText</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">steps</span><span class="p">[</span><span class="n">currentStepIndex</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">].</span><span class="n">stepText</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">steps</span><span class="p">[</span><span class="n">currentStepIndex</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">].</span><span class="n">stepImage</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">imageRenderer</span><span class="p">.</span><span class="n">sprite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">steps</span><span class="p">[</span><span class="n">currentStepIndex</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">].</span><span class="n">stepImage</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="n">stepKey</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">currentStepIndex</span><span class="p">;</span>
-
-<span class="w">        </span><span class="n">step</span><span class="p">.</span><span class="n">LocalizationKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stepKey</span><span class="p">;</span>
-<span class="w">        </span><span class="n">descriptionText</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LocalizationManager</span><span class="p">.</span><span class="n">Localize</span><span class="p">(</span><span class="n">stepKey</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
@@ -1129,7 +1088,7 @@
 
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentStepIndex</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="n">previousButton</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentStepIndex</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">numberOfSteps</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentStepIndex</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">steps</span><span class="p">.</span><span class="n">Length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="n">nextButton</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
@@ -1139,11 +1098,11 @@
 <span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
 <span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">UpdateGameObjects</span><span class="p">()</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">GameObject</span><span class="w"> </span><span class="n">go</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">stepGameObjects</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">GameObject</span><span class="w"> </span><span class="n">go</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">stepAnimation</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="n">go</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>
 
-<span class="w">        </span><span class="n">stepGameObjects</span><span class="p">[</span><span class="n">currentStepIndex</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">].</span><span class="n">SetActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="w">        </span><span class="n">stepAnimation</span><span class="p">[</span><span class="n">currentStepIndex</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">].</span><span class="n">SetActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
@@ -1161,7 +1120,7 @@
 <span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">NextStep</span><span class="p">()</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentStepIndex</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numberOfSteps</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentStepIndex</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">steps</span><span class="p">.</span><span class="n">Length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="n">currentStepIndex</span><span class="o">++</span><span class="p">;</span>
 <span class="w">            </span><span class="n">UpdateUI</span><span class="p">();</span>
 <span class="w">        </span><span class="p">}</span>
@@ -1199,14 +1158,14 @@
 <span class="normal">17</span>
 <span class="normal">18</span>
 <span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Texte qui affiche le titre de l&#39;étape. C&#39;est le texte dans la barre de titre de la SlateTuto.</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Texte qui affiche le titre de l&#39;étape. C&#39;est le texte dans la barre de titre de la SlateTuto.</span>
 <span class="k">private</span><span class="w"> </span><span class="n">TextMeshPro</span><span class="w"> </span><span class="n">titleText</span><span class="p">;</span>
 
 <span class="c1">// Texte qui affiche la description de l&#39;étape. C&#39;est le texte dans le contenu de la SlateTuto.</span>
 <span class="k">private</span><span class="w"> </span><span class="n">TextMeshPro</span><span class="w"> </span><span class="n">descriptionText</span><span class="p">;</span>
+
+<span class="c1">// Image affichant l&#39;image de l&#39;étape.</span>
+<span class="k">private</span><span class="w"> </span><span class="n">SpriteRenderer</span><span class="w"> </span><span class="n">imageRenderer</span><span class="p">;</span>
 
 <span class="c1">// Bouton pour passer à l&#39;étape suivante. C&#39;est le bouton &quot;&gt;&quot; de la SlateTuto.</span>
 <span class="k">private</span><span class="w"> </span><span class="n">GameObject</span><span class="w"> </span><span class="n">nextButton</span><span class="p">;</span>
@@ -1214,17 +1173,11 @@
 <span class="c1">// Bouton pour passer à l&#39;étape précédente. C&#39;est le bouton &quot;&lt;&quot; de la SlateTuto.</span>
 <span class="k">private</span><span class="w"> </span><span class="n">GameObject</span><span class="w"> </span><span class="n">previousButton</span><span class="p">;</span>
 
-<span class="c1">// Fichier CSV contenant les étapes dans les différentes langues. C&#39;est le fichier CSV de la localisation de l&#39;étape actuelle.</span>
-<span class="k">private</span><span class="w"> </span><span class="n">TextAsset</span><span class="w"> </span><span class="n">csvFile</span><span class="p">;</span>
+<span class="c1">// Liste d&#39;affichage des étapes (animations).</span>
+<span class="k">private</span><span class="w"> </span><span class="n">GameObject</span><span class="p">[]</span><span class="w"> </span><span class="n">stepAnimation</span><span class="p">;</span>
 
-<span class="c1">// Liste des étapes à activer lors de l&#39;étape. C&#39;est toutes les affichages et animations des étapes.</span>
-<span class="k">private</span><span class="w"> </span><span class="n">GameObject</span><span class="p">[]</span><span class="w"> </span><span class="n">stepGameObjects</span><span class="p">;</span>
-
-<span class="c1">// Index courrant pour savoir à quelle étape on se situe.</span>
-<span class="k">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">currentStepIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
-
-<span class="c1">// Nombre qui enregistre le nombre d&#39;étape dans le fichier CSV.</span>
-<span class="k">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numberOfSteps</span><span class="p">;</span>
+<span class="c1">// Liste des étapes (texte et image)    </span>
+<span class="k">private</span><span class="w"> </span><span class="n">SoStep</span><span class="p">[]</span><span class="w"> </span><span class="n">steps</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="fonctions">Fonctions</h2>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -1298,53 +1251,23 @@
 <span class="normal">69</span>
 <span class="normal">70</span>
 <span class="normal">71</span>
-<span class="normal">72</span>
-<span class="normal">73</span>
-<span class="normal">74</span>
-<span class="normal">75</span>
-<span class="normal">76</span>
-<span class="normal">77</span>
-<span class="normal">78</span>
-<span class="normal">79</span>
-<span class="normal">80</span>
-<span class="normal">81</span>
-<span class="normal">82</span>
-<span class="normal">83</span>
-<span class="normal">84</span>
-<span class="normal">85</span>
-<span class="normal">86</span>
-<span class="normal">87</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Fonction intégrer à Unity qui s&#39;applique dès le démarrage.</span>
+<span class="normal">72</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Fonction intégrer à Unity qui s&#39;applique dès le démarrage.</span>
 <span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csvFile</span><span class="p">.</span><span class="n">text</span><span class="p">.</span><span class="n">Split</span><span class="p">(</span><span class="sc">&#39;\n&#39;</span><span class="p">);</span><span class="w">  </span><span class="c1">// Compte le nombre de ligne dans le fichier CSV</span>
-<span class="w">    </span><span class="n">numberOfSteps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lines</span><span class="p">.</span><span class="n">Length</span><span class="o">-</span><span class="m">1</span><span class="p">;</span><span class="w">             </span><span class="c1">// Enregistre le nombre de ligne dans le fichier CSV</span>
-<span class="w">    </span><span class="n">UpdateUI</span><span class="p">();</span><span class="w">                                 </span><span class="c1">// Met à jour l&#39;UI</span>
+<span class="w">    </span><span class="n">UpdateUI</span><span class="p">();</span>
 <span class="p">}</span>
 
 <span class="c1">// Met à jour les textes de l&#39;interface utilisateur.</span>
 <span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">UpdateTextsUI</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="c1">// Met à jour le texte du titre de la SlateTuto</span>
-<span class="w">    </span><span class="n">titleText</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Étape &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">currentStepIndex</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; sur &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">numberOfSteps</span><span class="p">;</span>
-
-<span class="w">    </span><span class="n">LocalizedTextTMP</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">descriptionText</span><span class="p">.</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">LocalizedTextTMP</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="n">stepKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">step</span><span class="p">.</span><span class="n">LocalizationKey</span><span class="p">;</span>
-
-<span class="w">    </span><span class="c1">// Enlève les derniers chiffres de stepKey pour passer à l&#39;étape suivante</span>
-<span class="w">    </span><span class="c1">// Ex : Step5 -&gt; Step -&gt; Step6</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentStepIndex</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">10</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">stepKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stepKey</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">stepKey</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">stepKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stepKey</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">stepKey</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">2</span><span class="p">);</span>
+<span class="w">    </span><span class="n">titleText</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Étape &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">currentStepIndex</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; sur &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">steps</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// Met à jour le texte affichant ce qu&#39;il faut faire dans cette étape</span>
+<span class="w">    </span><span class="n">descriptionText</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">steps</span><span class="p">[</span><span class="n">currentStepIndex</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">].</span><span class="n">stepText</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// Affiche l&#39;image si il y en a une</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">steps</span><span class="p">[</span><span class="n">currentStepIndex</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">].</span><span class="n">stepImage</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">imageRenderer</span><span class="p">.</span><span class="n">sprite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">steps</span><span class="p">[</span><span class="n">currentStepIndex</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">].</span><span class="n">stepImage</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="n">stepKey</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">currentStepIndex</span><span class="p">;</span>
-
-<span class="w">    </span><span class="c1">// Met à jour le texte</span>
-<span class="w">    </span><span class="n">step</span><span class="p">.</span><span class="n">LocalizationKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stepKey</span><span class="p">;</span>
-<span class="w">    </span><span class="n">descriptionText</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LocalizationManager</span><span class="p">.</span><span class="n">Localize</span><span class="p">(</span><span class="n">stepKey</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="c1">// Met à jour l&#39;affichage des boutons de l&#39;interface utilisateur.</span>
@@ -1358,7 +1281,7 @@
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentStepIndex</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">previousButton</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
 <span class="w">    </span><span class="c1">// Si dernière étape, désactive le bouton pour passer à l&#39;étape d&#39;après</span>
-<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentStepIndex</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">numberOfSteps</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentStepIndex</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">steps</span><span class="p">.</span><span class="n">Length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">nextButton</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -1367,12 +1290,12 @@
 <span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">UpdateGameObjects</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="c1">// Désatcive tout</span>
-<span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">GameObject</span><span class="w"> </span><span class="n">go</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">stepGameObjects</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">GameObject</span><span class="w"> </span><span class="n">go</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">stepAnimation</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">go</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="c1">// Active l&#39;affichage de l&#39;étape courrante</span>
-<span class="w">    </span><span class="n">stepGameObjects</span><span class="p">[</span><span class="n">currentStepIndex</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">].</span><span class="n">SetActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="w">    </span><span class="n">stepAnimation</span><span class="p">[</span><span class="n">currentStepIndex</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">].</span><span class="n">SetActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="c1">// Met à jour l&#39;interface utilisateur.</span>
@@ -1386,7 +1309,7 @@
 <span class="c1">// Permet de passer à l&#39;étape suivante.</span>
 <span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">NextStep</span><span class="p">()</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentStepIndex</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numberOfSteps</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentStepIndex</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numbersteps</span><span class="p">.</span><span class="n">LengthfSteps</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">currentStepIndex</span><span class="o">++</span><span class="p">;</span>
 <span class="w">        </span><span class="n">UpdateUI</span><span class="p">();</span>
 <span class="w">    </span><span class="p">}</span>
@@ -1401,6 +1324,10 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
+<h2 id="appercu-dans-lediteur">Apperçu dans l'éditeur</h2>
+<figure>
+    <img alt="Image title" src="../../assets/images/presentation/step-manager.png" />
+</figure>
 
 
 
@@ -1447,13 +1374,13 @@
         
         
           
-          <a href="../../prerequis/outils_logiciels/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Télécharger les outils/logiciels">
+          <a href="../creer_etape/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Créer des étapes">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Suivant
               </span>
               <div class="md-ellipsis">
-                Télécharger les outils/logiciels
+                Créer des étapes
               </div>
             </div>
             <div class="md-footer__button md-icon">
