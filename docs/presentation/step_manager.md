@@ -1,19 +1,10 @@
 # Explication du script StepManager
 
-<div class="temp-card">
-    Cette partie est en cours d'écriture
-</div>
-
 ***
 
 Dans le projet PolyLens, l'affichages des différentes étapes et animations sont gérés par le script `StepManager` qui suit :
 
-!!! info
-
-    Ce script est adapté pour l'utilisation de la [Localisation](/PolyLens-Doc/developpement/localisation/).
-
 ```c# linenums="1"
-using Assets.SimpleLocalization.Scripts;
 using TMPro;
 using UnityEngine;
 
@@ -29,6 +20,9 @@ public class StepManager : MonoBehaviour
     [Tooltip("Texte affichant la description de l'étape.")]
     [SerializeField] private TextMeshPro descriptionText;
     
+    [Tooltip("Image affichant l'image de l'étape.")]
+    [SerializeField] private SpriteRenderer imageRenderer;
+    
     [Header("Buttons UI")]
     [Tooltip("Bouton pour passer à l'étape suivante.")]
     [SerializeField] private GameObject nextButton;
@@ -36,22 +30,17 @@ public class StepManager : MonoBehaviour
     [Tooltip("Bouton pour passer à l'étape précédente.")]
     [SerializeField] private GameObject previousButton;
     
-    [Header("Fichier CSV")]
-    [Tooltip("Fichier CSV contenant les étapes dans les différentes langues.")]
-    [SerializeField] private TextAsset csvFile;
-    
     [Header("Step List")]
-    [Tooltip("Liste des étapes à activer lors de l'étape.")]
-    [SerializeField] private GameObject[] stepGameObjects;
+    [Tooltip("Liste d'affichage des étapes (animations).")]
+    [SerializeField] private GameObject[] stepAnimation;
+    
+    [Tooltip("Etapes de la machine.")]
+    [SerializeField] private SoStep[] steps;
     
     private int currentStepIndex = 1;
     
-    private int numberOfSteps;
-    
     private void Start()
     {
-        string[] lines = csvFile.text.Split('\n');
-        numberOfSteps = lines.Length-1;
         UpdateUI();
     }
     
@@ -60,23 +49,11 @@ public class StepManager : MonoBehaviour
     /// </summary>
     private void UpdateTextsUI()
     {
-        titleText.text = "Étape " + currentStepIndex + " sur " + numberOfSteps;
-        
-        LocalizedTextTMP step = descriptionText.GetComponent<LocalizedTextTMP>();
-        string stepKey = step.LocalizationKey;
-
-        if (currentStepIndex <= 10)
-        {
-            stepKey = stepKey.Substring(0, stepKey.Length - 1);
-        } else
-        {
-            stepKey = stepKey.Substring(0, stepKey.Length - 2);
+        titleText.text = "Étape " + currentStepIndex + " sur " + steps.Length;
+        descriptionText.text = steps[currentStepIndex - 1].stepText;
+        if (steps[currentStepIndex - 1].stepImage != null) {
+            imageRenderer.sprite = steps[currentStepIndex - 1].stepImage;
         }
-        
-        stepKey += currentStepIndex;
-        
-        step.LocalizationKey = stepKey;
-        descriptionText.text = LocalizationManager.Localize(stepKey);
     }
 
     /// <summary>
@@ -89,7 +66,7 @@ public class StepManager : MonoBehaviour
         
         if (currentStepIndex == 1) {
             previousButton.SetActive(false);
-        } else if (currentStepIndex == numberOfSteps) {
+        } else if (currentStepIndex == steps.Length) {
             nextButton.SetActive(false);
         }
     }
@@ -99,11 +76,11 @@ public class StepManager : MonoBehaviour
     /// </summary>
     private void UpdateGameObjects()
     {
-        foreach (GameObject go in stepGameObjects) {
+        foreach (GameObject go in stepAnimation) {
             go.SetActive(false);
         }
         
-        stepGameObjects[currentStepIndex - 1].SetActive(true);
+        stepAnimation[currentStepIndex - 1].SetActive(true);
     }
     
     /// <summary>
@@ -121,7 +98,7 @@ public class StepManager : MonoBehaviour
     /// </summary>
     public void NextStep()
     {
-        if (currentStepIndex < numberOfSteps) {
+        if (currentStepIndex < steps.Length) {
             currentStepIndex++;
             UpdateUI();
         }
@@ -139,6 +116,7 @@ public class StepManager : MonoBehaviour
     }
 }
 
+
 ```
 
 ## Variables
@@ -150,23 +128,20 @@ private TextMeshPro titleText;
 // Texte qui affiche la description de l'étape. C'est le texte dans le contenu de la SlateTuto.
 private TextMeshPro descriptionText;
 
+// Image affichant l'image de l'étape.
+private SpriteRenderer imageRenderer;
+
 // Bouton pour passer à l'étape suivante. C'est le bouton ">" de la SlateTuto.
 private GameObject nextButton;
 
 // Bouton pour passer à l'étape précédente. C'est le bouton "<" de la SlateTuto.
 private GameObject previousButton;
 
-// Fichier CSV contenant les étapes dans les différentes langues. C'est le fichier CSV de la localisation de l'étape actuelle.
-private TextAsset csvFile;
+// Liste d'affichage des étapes (animations).
+private GameObject[] stepAnimation;
 
-// Liste des étapes à activer lors de l'étape. C'est toutes les affichages et animations des étapes.
-private GameObject[] stepGameObjects;
-
-// Index courrant pour savoir à quelle étape on se situe.
-private int currentStepIndex = 1;
-
-// Nombre qui enregistre le nombre d'étape dans le fichier CSV.
-private int numberOfSteps;
+// Liste des étapes (texte et image)    
+private SoStep[] steps;
 ```
 
 ## Fonctions
@@ -175,35 +150,20 @@ private int numberOfSteps;
 // Fonction intégrer à Unity qui s'applique dès le démarrage.
 private void Start()
 {
-    string[] lines = csvFile.text.Split('\n');  // Compte le nombre de ligne dans le fichier CSV
-    numberOfSteps = lines.Length-1;             // Enregistre le nombre de ligne dans le fichier CSV
-    UpdateUI();                                 // Met à jour l'UI
+    UpdateUI();
 }
 
 // Met à jour les textes de l'interface utilisateur.
 private void UpdateTextsUI()
 {
     // Met à jour le texte du titre de la SlateTuto
-    titleText.text = "Étape " + currentStepIndex + " sur " + numberOfSteps;
-
-    LocalizedTextTMP step = descriptionText.GetComponent<LocalizedTextTMP>();
-    string stepKey = step.LocalizationKey;
-
-    // Enlève les derniers chiffres de stepKey pour passer à l'étape suivante
-    // Ex : Step5 -> Step -> Step6
-    if (currentStepIndex <= 10)
-    {
-        stepKey = stepKey.Substring(0, stepKey.Length - 1);
-    } else
-    {
-        stepKey = stepKey.Substring(0, stepKey.Length - 2);
+    titleText.text = "Étape " + currentStepIndex + " sur " + steps.Length;
+    // Met à jour le texte affichant ce qu'il faut faire dans cette étape
+    descriptionText.text = steps[currentStepIndex - 1].stepText;
+    // Affiche l'image si il y en a une
+    if (steps[currentStepIndex - 1].stepImage != null) {
+        imageRenderer.sprite = steps[currentStepIndex - 1].stepImage;
     }
-
-    stepKey += currentStepIndex;
-
-    // Met à jour le texte
-    step.LocalizationKey = stepKey;
-    descriptionText.text = LocalizationManager.Localize(stepKey);
 }
 
 // Met à jour l'affichage des boutons de l'interface utilisateur.
@@ -217,7 +177,7 @@ private void UpdateButtonUI()
     if (currentStepIndex == 1) {
         previousButton.SetActive(false);
     // Si dernière étape, désactive le bouton pour passer à l'étape d'après
-    } else if (currentStepIndex == numberOfSteps) {
+    } else if (currentStepIndex == steps.Length) {
         nextButton.SetActive(false);
     }
 }
@@ -226,12 +186,12 @@ private void UpdateButtonUI()
 private void UpdateGameObjects()
 {
     // Désatcive tout
-    foreach (GameObject go in stepGameObjects) {
+    foreach (GameObject go in stepAnimation) {
         go.SetActive(false);
     }
 
     // Active l'affichage de l'étape courrante
-    stepGameObjects[currentStepIndex - 1].SetActive(true);
+    stepAnimation[currentStepIndex - 1].SetActive(true);
 }
 
 // Met à jour l'interface utilisateur.
@@ -245,7 +205,7 @@ private void UpdateUI()
 // Permet de passer à l'étape suivante.
 public void NextStep()
 {
-    if (currentStepIndex < numberOfSteps) {
+    if (currentStepIndex < numbersteps.LengthfSteps) {
         currentStepIndex++;
         UpdateUI();
     }
@@ -260,3 +220,10 @@ public void PreviousStep()
     }
 }
 ```
+
+
+## Apperçu dans l'éditeur
+
+<figure markdown="span">
+    ![Image title](../assets/images/presentation/step-manager.png)
+</figure>

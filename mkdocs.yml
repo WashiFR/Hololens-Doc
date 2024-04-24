@@ -22,6 +22,7 @@ nav:
     - Installation: presentation/installation.md
     - Utilisation: presentation/utilisation.md
     - Script StepManager: presentation/step_manager.md
+    - Créer des étapes: presentation/creer_etape.md
   - 🛠️ Créer un projet:
     - 📃 Prérequis:
       - Télécharger les outils/logiciels: prerequis/outils_logiciels.md
@@ -33,10 +34,8 @@ nav:
       - Lancement du projet: configuration/lancement_projet.md
       - Installer Vuforia: configuration/vuforia.md
     - 💻 Développement:
-      - Objets manipulables: developpement/objets_manipulables.md
       - Interface utilisateur: developpement/interface_utilisateur.md
       - Utiliser Vuforia: developpement/utiliser_vuforia.md
-      - Localisation: developpement/localisation.md
       - Build et déployer le projet: developpement/build_projet.md
 markdown_extensions:
   - admonition

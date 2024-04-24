@@ -11,6 +11,10 @@ Pour pouvoir tester notre projet Unity, plusieurs solutions sont disponibles :
 
     Dans notre cas, nous allons principalement utiliser la deuxième solution car il est plus simple pour nous de tester directement sur le casque et il est plus facile d’effectuer certaines actions.
 
+!!! warning
+
+    Le logiciel n'a pas accès aux caméra du casque, si vous souhaitez tester Vuforia il vous faudra build le projet sur votre casque.
+
 ## Installation du logiciel Holographic Remoting Player
 
 Le logiciel Holographic Remoting Player est très simple d’installation. Sur le casque, ouvrez l’application Microsoft Store, puis recherchez `Holographic Remoting Player`. Sélectionnez le logiciel montré ci-dessous et installez le.

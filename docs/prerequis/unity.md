@@ -2,7 +2,7 @@
 
 ***
 
-Si vous n'aites pas familier avec Unity et le C#[^1], regardez cette [playlist de vidéos](https://www.youtube.com/watch?v=RAZjcibFE1A&list=PLUWxWDlz8PYLKlr6F_fwCs02DH1g2hrgS&pp=iAQB) qui vous permettra d'apprendre le C# avec Unity.
+Si vous n'aites pas familier avec Unity et le C#[^1], vous pouvez regarder cette [playlist de vidéos](https://www.youtube.com/watch?v=RAZjcibFE1A&list=PLUWxWDlz8PYLKlr6F_fwCs02DH1g2hrgS&pp=iAQB) qui vous permettra d'apprendre le C# avec Unity.
 
 Pour vous familiariser avec l'interface d'Unity, regardez également cette vidéo :
 

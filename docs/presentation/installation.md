@@ -1,5 +1,9 @@
 # Installation du projet PolyLens
 
+<div class="temp-card">
+    Cette partie est en cours d'écriture
+</div>
+
 ***
 
 Pour installer le projet PolyLens, téléchargez ou clonez notre projet avec [git](https://git-scm.com/) grâce à la commande :
